@@ -1,0 +1,17 @@
+a{
+    text-decoration: none;
+    color: black;
+}
+.activ{
+    color: var(--main-color);
+}
+a:hover{
+    color: var(--main-color);
+}
+.header-right  a{
+    font-size: 20px;
+    margin: 0 10px;
+}
+.header-right button{
+    margin-left: 20px;
+}

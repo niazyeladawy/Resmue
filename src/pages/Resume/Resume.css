@@ -1,0 +1,30 @@
+.section-titlebg{
+    position: relative;
+    margin-bottom: 60px;
+    z-index: 1;
+}
+.section-title{
+    position: absolute;
+}
+.section-title::before{
+    content: "";
+    background-color: var(--main-color);
+    width: 100%;
+    position: absolute;
+    height: 7px;
+    bottom: 5px;
+    z-index: -1;  
+}
+.contact button{
+    margin-top: 20px;
+    width: fit-content !important;
+    text-align: center;
+}
+.contact-info p{
+    color: #000;
+    font-weight: bold;
+}
+.contact-info p span{
+    color: #787878;
+    font-weight: normal;
+}

@@ -1,0 +1,19 @@
+.customTabs-item{
+    padding:0 10px !important;
+    min-width: none !important;
+}
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root{
+    min-width: 0 !important;
+}
+.custom-tabs .active{
+    color: var(--main-color) !important;
+}
+.projectDialogActions{
+    justify-content: center !important;
+}
+.project-item{
+    cursor: pointer;
+}
+.MuiTabs-indicator{
+    background-color: var(--main-color) !important;
+}
