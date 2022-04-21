@@ -1,16 +1,26 @@
 import { Dialog, DialogActions, DialogContent, DialogTitle, Tab, Tabs } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import resumeData from '../../utils/resumeData';
 import { Grow } from '@mui/material';
-
-
 import "./Portfolio.css"
+import axios from 'axios';
+
 
 function Portfolio() {
     const [tabVlue, setTabVlue] = useState("All");
-    const [projectDialog, setProjectDialog] = useState(false)
+    const [projectDialog, setProjectDialog] = useState(false);
 
 
+    const [item, setitem] = useState([]);
+
+    const fetchData = async () => {
+        let { data } = await axios.get("https://resume-data-f7790-default-rtdb.europe-west1.firebasedatabase.app/projects.json");
+        setitem(data);
+    }
+
+    useEffect(() => {
+        fetchData();
+    }, [])
 
     return (
         <div className="portfolio p-3 rounded-3 shadow   my-4 bg-white overflow-hidden">
@@ -27,8 +37,9 @@ function Portfolio() {
                 </Tabs>
             </div>
             <div className="row mt-4">
+
                 {
-                    resumeData.projects.map((project, idx) => (
+                    item.map((project, idx) => (
                         <>
                             {tabVlue === project.tag || tabVlue === 'All' ? (
                                 <div className="col-md-4 mb-3" key={idx}>
@@ -57,8 +68,9 @@ function Portfolio() {
                     <p>{projectDialog.description}</p>
                 </DialogContent>
                 <DialogActions className="projectDialogActions">
-                    {projectDialog?.links?.map((link,idx) => (
-                        <a key={idx} href={link.link} target="_blank">{link.icon}</a>
+                    {projectDialog?.links?.map((link, idx) => (
+                        <><a key={idx} href={link.link} target="_blank"><i className={link.icon}></i></a>
+                        </>
                     ))}
                 </DialogActions>
             </Dialog>

@@ -20,7 +20,7 @@ function App() {
           <Switch>
             <Route path="/resume"><Resume/></Route>
             <Route path="/portfolio"><Portfolio/></Route>
-            <Redirect from="/" exact to="/resume"></Redirect>
+            <Redirect from="/" exact to="/portfolio"></Redirect>
           </Switch>
           <Footer/>
         </div>

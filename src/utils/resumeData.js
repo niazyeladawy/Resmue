@@ -1,5 +1,5 @@
-import { GitHub, Language, YouTube } from "@mui/icons-material";
-import movieReact from '../assets/images/pp.jpg'
+import { GitHub, Language } from "@mui/icons-material";
+
 
 export default  {
     name:"Niazy Eladawy",
@@ -66,6 +66,18 @@ export default  {
         },
     ],
     projects:[
+        {
+            tag:"React",
+            title:"Cima Hub",
+            caption:"Cima Hub with react",
+            image:"https://i.imgur.com/SNBNF0e.jpg",
+            description:"Cima Hub with React Js and Material UI",
+            links:[
+                
+                {link:"https://github.com/niazyeladawy/Cima-Hub",icon:<GitHub/>},
+                {link:"https://cimahub.netlify.app/",icon:<Language/>}
+            ]
+        },
         {
             tag:"React",
             title:"Movie App",
