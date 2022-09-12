@@ -6,7 +6,7 @@ import resumeData from '../../utils/resumeData';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineItem from '@mui/lab/TimelineItem';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-import Pdf from '../../utils/CV.pdf';
+
 
 
 function Profile() {
@@ -41,7 +41,7 @@ function Profile() {
                 </CustomTimeLine >
                 <br/>
                 
-                <a href={Pdf} target = "blank" download className="btn bg-main w-100 d-flex justify-content-between">Download CV <i className="fas fa-download"></i></a>
+                <a href='https://drive.google.com/file/d/19Y0Mu1Djyhb9yKBBIh_CapxLM3c3JL4M/view?usp=sharing' target ="blank"  className="btn bg-main w-100 d-flex justify-content-between">Download CV <i className="fas fa-download"></i></a>
             </div>
         </div>
     )

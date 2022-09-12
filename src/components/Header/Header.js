@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import './Header.css';
 import HomeIcon from '@mui/icons-material/Home';
 import resumeData from '../../utils/resumeData';
-import Pdf from '../../utils/CV.pdf';
+
 
 function Header() {
     return (
@@ -23,7 +23,7 @@ function Header() {
                                 <a  key={idx} href={resumeData.socials[key].link} target="blank"><i className={resumeData.socials[key].icon}></i> </a>
                             )
                         )}
-                        <a href={Pdf} target = "blank" download className="fs-6 btn bg-main w-100 d-flex justify-content-between align-items-center">Download CV <i className="fas fa-download"></i></a>
+                        <a href="https://drive.google.com/file/d/19Y0Mu1Djyhb9yKBBIh_CapxLM3c3JL4M/view?usp=sharing" target="blank"  className="fs-6 btn bg-main w-100 d-flex justify-content-between align-items-center">Download CV <i className="fas fa-download"></i></a>
                         
                     </div>
                 </Navbar.Collapse>
