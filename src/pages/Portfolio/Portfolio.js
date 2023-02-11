@@ -1,26 +1,15 @@
 import { Dialog, DialogActions, DialogContent, DialogTitle, Tab, Tabs } from '@mui/material';
-import React, { useEffect, useState } from 'react';
-import resumeData from '../../utils/resumeData';
+import React, {  useState } from 'react';
 import { Grow } from '@mui/material';
 import "./Portfolio.css"
-import axios from 'axios';
+import { useContext } from 'react';
+import { ResumeDataContext } from '../../context/resumeContext';
 
 
 function Portfolio() {
     const [tabVlue, setTabVlue] = useState("All");
     const [projectDialog, setProjectDialog] = useState(false);
-
-
-    const [item, setitem] = useState([]);
-
-    const fetchData = async () => {
-        let { data } = await axios.get("https://resume-data-f7790-default-rtdb.europe-west1.firebasedatabase.app/projects.json");
-        setitem(data);
-    }
-
-    useEffect(() => {
-        fetchData();
-    }, [])
+    const {  data } = useContext(ResumeDataContext);
 
     return (
         <div className="portfolio p-3 rounded-3 shadow   my-4 bg-white overflow-hidden">
@@ -31,7 +20,7 @@ function Portfolio() {
             <div className="item">
                 <Tabs value={tabVlue} indicatorColor="secondary" className="custom-tabs" onChange={(event, newValue) => setTabVlue(newValue)}>
                     <Tab label="All" value="All" className={tabVlue === "All" ? 'customTabs-item active' : 'customTabs-item'} />
-                    {[...new Set(resumeData.projects.map(item => item.tag))].map((tag, idx) => (
+                    {[...new Set(data?.projects.map(item => item.tag))].map((tag, idx) => (
                         <Tab key={idx} label={tag} value={tag} className={tabVlue === tag ? 'customTabs-item active' : 'customTabs-item'} />
                     ))}
                 </Tabs>
@@ -39,7 +28,7 @@ function Portfolio() {
             <div className="row mt-4">
 
                 {
-                    item.map((project, idx) => (
+                    data?.projects.map((project, idx) => (
                         <>
                             {tabVlue === project.tag || tabVlue === 'All' ? (
                                 <div className="col-md-4 mb-3" key={idx}>
@@ -59,6 +48,7 @@ function Portfolio() {
                     ))
                 }
             </div>
+
             <Dialog maxWidth='lg' open={projectDialog} onClose={() => setProjectDialog(false)}>
                 <DialogTitle onClose={() => setProjectDialog(false)}>
                     <h4 className="text-center">{projectDialog.title}</h4>

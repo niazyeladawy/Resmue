@@ -6,13 +6,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import ResumeDataContextProvider from './context/resumeContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-    <App />
-    </BrowserRouter>
-    
+    <ResumeDataContextProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ResumeDataContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
